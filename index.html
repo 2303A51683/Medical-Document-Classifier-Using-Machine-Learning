@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An NLP dashboard for classifying clinical documentation by medical specialty." />
+    <title>MedClassify | Clinical NLP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="MedClassify home"><span class="brand-mark">✦</span>Med<span>Classify</span></a>
+        <div class="badge"><i></i> MODEL DEMO</div>
+      </header>
+
+      <section class="hero" id="top">
+        <p class="eyebrow">NLP-BASED MEDICAL DOCUMENT CLASSIFICATION</p>
+        <h1>Route clinical text to the <em>right specialty.</em></h1>
+        <p class="lead">A human-centered workspace for exploring how TF-IDF and supervised machine learning can organize unstructured medical documentation.</p>
+        <div class="stats" aria-label="Project metrics">
+          <div><strong>3,813</strong><span>medical records</span></div>
+          <div><strong>39</strong><span>specialties</span></div>
+          <div><strong>1–2</strong><span>TF-IDF n-grams</span></div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="workspace-heading"><div><p class="eyebrow">CLASSIFICATION WORKSPACE</p><h2 id="workspace-title">Analyze a document</h2></div><span class="secure">◉ Human review recommended</span></div>
+        <div class="classifier-grid">
+          <div class="input-card">
+            <label for="document">Clinical text</label>
+            <textarea id="document" placeholder="Paste a clinical note, report, or case description here…" spellcheck="true"></textarea>
+            <div class="input-footer"><span id="word-count">0 words</span><div><button class="text-button" id="sample-button" type="button">Use example</button><button class="classify-button" id="classify-button" type="button">Classify document <span>→</span></button></div></div>
+          </div>
+          <aside class="result-card" aria-live="polite">
+            <div class="result-top"><span>Predicted specialty</span><span class="confidence" id="confidence">Awaiting text</span></div>
+            <div class="empty-result" id="empty-result"><div class="empty-icon">⌁</div><p>Your classification<br/>will appear here.</p></div>
+            <div class="prediction hidden" id="prediction">
+              <h3 id="specialty">—</h3>
+              <div class="meter"><span id="meter-fill"></span></div>
+              <p id="reason">—</p>
+              <div class="alternatives"><span>OTHER LIKELY MATCHES</span><ol id="alternatives"></ol></div>
+            </div>
+          </aside>
+        </div>
+        <p class="disclaimer">Demo mode uses transparent medical-term matching in your browser. The included training script produces the documented TF-IDF + Logistic Regression model for validated use. Do not use predictions for diagnosis or patient-care decisions.</p>
+      </section>
+
+      <section class="how-it-works" aria-labelledby="workflow-title">
+        <div><p class="eyebrow">THE PIPELINE</p><h2 id="workflow-title">From narrative to<br/><em>structured signal.</em></h2></div>
+        <div class="steps">
+          <article><b>01</b><h3>Prepare text</h3><p>Combine description, keywords, and cleaned transcription while preserving clinically meaningful language.</p></article>
+          <article><b>02</b><h3>Vectorize</h3><p>TF-IDF transforms unigrams and bigrams into weighted signals that algorithms can interpret.</p></article>
+          <article><b>03</b><h3>Classify</h3><p>Compare Multinomial Naive Bayes with class-balanced Logistic Regression on a held-out test set.</p></article>
+          <article><b>04</b><h3>Review</h3><p>Return the highest-confidence specialty as a suggestion for informed human review.</p></article>
+        </div>
+      </section>
+
+      <section class="model-section" aria-labelledby="models-title">
+        <p class="eyebrow">MEASURED EXPERIMENT · SUPPLIED DATASET</p><h2 id="models-title">Two models. One careful comparison.</h2>
+        <div class="model-grid"><article><div class="model-label">BASELINE · TESTED</div><h3>Multinomial<br/>Naive Bayes</h3><p>Accuracy <b>33.81%</b> · weighted F1 <b>23.08%</b><br/>Fast, sparse-text-friendly baseline.</p><code>alpha = 0.5</code></article><article class="featured"><div class="model-label">PRIMARY CANDIDATE · TESTED</div><h3>Logistic<br/>Regression</h3><p>Accuracy <b>38.53%</b> · macro F1 <b>36.26%</b><br/>Class-balanced multiclass classifier.</p><code>C = 1.0 · max_iter = 700</code></article><div class="settings"><span>COMMON SETTINGS</span><p>records <b>3,813</b></p><p>specialties <b>39</b></p><p>test split <b>80 / 20</b></p><p>random state <b>42</b></p></div></div>
+      </section>
+      <footer><span>MEDCLASSIFY · CLINICAL NLP PROJECT</span><span>Built for document organization, not clinical decision-making.</span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
