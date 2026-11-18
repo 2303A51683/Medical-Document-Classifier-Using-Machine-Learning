@@ -14,25 +14,27 @@
     <main class="shell">
       <header class="topbar">
         <a class="brand" href="#top" aria-label="MedClassify home"><span class="brand-mark">✦</span>Med<span>Classify</span></a>
+        <nav aria-label="Primary navigation"><a href="#workspace-title">Workspace</a><a href="#workflow-title">Method</a><a href="#models-title">Results</a></nav>
         <div class="badge"><i></i> MODEL DEMO</div>
       </header>
 
       <section class="hero" id="top">
         <p class="eyebrow">NLP-BASED MEDICAL DOCUMENT CLASSIFICATION</p>
-        <h1>Route clinical text to the <em>right specialty.</em></h1>
-        <p class="lead">A human-centered workspace for exploring how TF-IDF and supervised machine learning can organize unstructured medical documentation.</p>
+        <h1>Bring clarity to<br/><em>clinical narrative.</em></h1>
+        <p class="lead">An evidence-led workspace that turns unstructured documentation into consistent specialty-routing suggestions — designed for informed human review.</p>
         <div class="stats" aria-label="Project metrics">
           <div><strong>3,813</strong><span>medical records</span></div>
           <div><strong>39</strong><span>specialties</span></div>
           <div><strong>1–2</strong><span>TF-IDF n-grams</span></div>
         </div>
+        <div class="hero-proof"><span class="shield">✓</span><span><b>Dataset validated</b><small>Complete model fields · 80/20 stratified evaluation</small></span></div>
       </section>
 
       <section class="workspace" aria-labelledby="workspace-title">
         <div class="workspace-heading"><div><p class="eyebrow">CLASSIFICATION WORKSPACE</p><h2 id="workspace-title">Analyze a document</h2></div><span class="secure">◉ Human review recommended</span></div>
         <div class="classifier-grid">
           <div class="input-card">
-            <label for="document">Clinical text</label>
+            <div class="field-label"><label for="document">Clinical text</label><span>Text stays in your browser</span></div>
             <textarea id="document" placeholder="Paste a clinical note, report, or case description here…" spellcheck="true"></textarea>
             <div class="input-footer"><span id="word-count">0 words</span><div><button class="text-button" id="sample-button" type="button">Use example</button><button class="classify-button" id="classify-button" type="button">Classify document <span>→</span></button></div></div>
           </div>
@@ -47,7 +49,7 @@
             </div>
           </aside>
         </div>
-        <p class="disclaimer">Demo mode uses transparent medical-term matching in your browser. The included training script produces the documented TF-IDF + Logistic Regression model for validated use. Do not use predictions for diagnosis or patient-care decisions.</p>
+        <p class="disclaimer"><b>Important:</b> Demo mode uses transparent medical-term matching in your browser. The included training script produces the documented TF-IDF + Logistic Regression model for validated use. Do not use predictions for diagnosis or patient-care decisions.</p>
       </section>
 
       <section class="how-it-works" aria-labelledby="workflow-title">
@@ -62,7 +64,7 @@
 
       <section class="model-section" aria-labelledby="models-title">
         <p class="eyebrow">MEASURED EXPERIMENT · SUPPLIED DATASET</p><h2 id="models-title">Two models. One careful comparison.</h2>
-        <div class="model-grid"><article><div class="model-label">BASELINE · TESTED</div><h3>Multinomial<br/>Naive Bayes</h3><p>Accuracy <b>33.81%</b> · weighted F1 <b>23.08%</b><br/>Fast, sparse-text-friendly baseline.</p><code>alpha = 0.5</code></article><article class="featured"><div class="model-label">PRIMARY CANDIDATE · TESTED</div><h3>Logistic<br/>Regression</h3><p>Accuracy <b>38.53%</b> · macro F1 <b>36.26%</b><br/>Class-balanced multiclass classifier.</p><code>C = 1.0 · max_iter = 700</code></article><div class="settings"><span>COMMON SETTINGS</span><p>records <b>3,813</b></p><p>specialties <b>39</b></p><p>test split <b>80 / 20</b></p><p>random state <b>42</b></p></div></div>
+        <div class="model-grid"><article><div class="model-label">BASELINE · TESTED</div><h3>Multinomial<br/>Naive Bayes</h3><p>Accuracy <b>33.81%</b> · weighted F1 <b>23.08%</b><br/>Fast, sparse-text-friendly baseline.</p><code>alpha = 0.5</code></article><article class="featured"><div class="model-label">PRIMARY CANDIDATE · TESTED</div><h3>Logistic<br/>Regression</h3><p>Accuracy <b>38.53%</b> · macro F1 <b>36.26%</b><br/>Class-balanced multiclass classifier.</p><code>C = 1.0 · max_iter = 700</code></article><div class="settings"><span>STUDY SETTINGS</span><p>records <b>3,813</b></p><p>specialties <b>39</b></p><p>test split <b>80 / 20</b></p><p>random state <b>42</b></p></div></div>
       </section>
       <footer><span>MEDCLASSIFY · CLINICAL NLP PROJECT</span><span>Built for document organization, not clinical decision-making.</span></footer>
     </main>
